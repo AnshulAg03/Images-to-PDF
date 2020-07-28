@@ -1,9 +1,13 @@
 pipeline {
-    agent { docker { image 'gradle:6.5.1-jre8' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'gradle --version'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
